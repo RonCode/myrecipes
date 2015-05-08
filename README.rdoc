@@ -1,9 +1,26 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+testing specs for recipes: 
+name: string
+summary: text
+description: text
 
-Things you may want to cover:
+==validation for recipe model==
+- name must be present
+  -> name must be between 5 characters and less than 100 characters
+- summary must be present
+  -> summary must be between 10 characters and less than 150 characters
+- description must be present
+  -> description must be 20 and 500 characters
+  
+==validations for chef model==
+- chef_id must be present
+- chefname must be between 3 characters and less tahn 40 characters
+- email must be present
+- email must be unique (since we'll use this for logins later)
+- email must be valid
+
+
 
 * Ruby version
 
