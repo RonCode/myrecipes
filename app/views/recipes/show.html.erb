@@ -1,5 +1,5 @@
 <!--look for partial in shared directory -->
-<%= render 'shared/page_title', title: @recipe.name %>
+<%= render 'shared/page_title', title: @recipe.names %>
 
 <div class="row">
   <div class="col-md-4 pull-right center">
@@ -11,8 +11,13 @@
   <div class="col-md-8">
     <!-- edit button -->
     <%= link_to "Edit this Recipe", edit_recipe_path(@recipe), class: "btn btn-success pull-right" %>
-    <!-- -->
+    <!-- ----------- -->
     <h3><%= @recipe.summary %></h3>
+    
+    <div class="show_recipe">
+      <%= image_tag(@recipe.picture.url, class: "gravatar") if @recipe.picture? %>
+    </div>
+    
     <div class="well">
       <p>
         <strong>Steps:</strong>
