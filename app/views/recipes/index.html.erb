@@ -1,0 +1,28 @@
+<h1>All Recipes</h1>
+<hr/> 
+
+<!-- loop through each element -->
+<% @recipes.each do |recipe| %>
+  <div class="row">
+    
+    <div class="col-md-2">
+      <section class="chef_info center">
+        <!-- add pic / code in appllication_helper.rb -->
+        <%= gravatar_for recipe.chef, size: 100 %>
+        <h5>Chef name: <%= recipe.chef.chefname %></h5>
+      </section>
+    </div>
+    
+    <!-- 8 remaing columns to recipe -->
+    <div class="col-lg-8 well">
+      <h4><%= link_to recipe.name, recipe_path(recipe) %></h4>
+      <p><%= recipe.summary %></p>
+      <p>
+        <span class="quiet"><small> <%= time_ago_in_words(recipe.created_at) %> ago</small></span>
+      </p>
+    </div>
+  
+  </div>
+  <hr/>
+<% end %>
+
