@@ -4,7 +4,7 @@ class RecipesController < ApplicationController
     #returns all recipes in order of most likes
     #@recipes = Recipe.all.sort_by{|likes| likes.thumbs_up_total}.reverse
     
-    #using pagiante gem
+    #using pagiante gem, 4 recipes per page
     @recipes = Recipe.paginate(page: params[:page], per_page: 4)
     
   end
