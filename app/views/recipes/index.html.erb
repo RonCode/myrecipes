@@ -1,6 +1,8 @@
 <h1>All Recipes</h1>
 <hr/> 
 
+<%= will_paginate %>
+
 <!-- loop through each element -->
 <% @recipes.each do |recipe| %>
   <div class="row">
@@ -18,8 +20,22 @@
       <h4><%= link_to recipe.name, recipe_path(recipe) %></h4>
       <p><%= recipe.summary %></p>
       <p>
-        <span class="quiet"><small> <%= time_ago_in_words(recipe.created_at) %> ago</small></span>
+        <span class="quiet"><small> created: <%= time_ago_in_words(recipe.created_at) %> ago /</small></span>
+        <span class="quiet"><small> updated: <%= time_ago_in_words(recipe.updated_at) %> ago</small></span>
       </p>
+      <!-- iterating through each object, dont need @object -->
+      <div class="pull-right">
+        <!-- specify post action -->
+        <%= link_to like_recipe_path(recipe, like: true), method: :post do %>
+          <!--bootstrap icon -->
+          <i class="glyphicon glyphicon-thumbs-up"></i> &nbsp <%= recipe.thumbs_up_total %>
+        <% end %> &nbsp&nbsp&nbsp&nbsp
+        <%= link_to like_recipe_path(recipe, like: false), method: :post do %>
+          <!--bootstrap icon -->
+          <i class="glyphicon glyphicon-thumbs-down"></i> &nbsp <%= recipe.thumbs_down_total %>
+        <% end %>
+      </div>  
+      
     </div>
     <div class="col-md-4">
       <!-- iterating through each object of @recipe, therefor recipe and not @recipe -->
@@ -29,4 +45,6 @@
   </div>
   <hr/>
 <% end %>
+
+<%= will_paginate %>
 
