@@ -40,6 +40,9 @@ gem 'spring', '~>1.3.6',        group: :development
 # Use ActiveModel has_secure_password, for authentication
 gem 'bcrypt', '~> 3.1.7'
 
+#production file handling system
+gem 'fog', '1.23.0'
+
 
 group :development, :test do 
   # Use sqlite3 as the database for Active Record
