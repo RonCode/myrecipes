@@ -41,7 +41,7 @@ class RecipesController < ApplicationController
   def update
     if @recipe.update(recipe_params)
       flash[:success] = "Your recipe was updated successfully"
-      redirect_to chef_path(@chef)
+      redirect_to recipes_path
     else
       render :edit
     end
